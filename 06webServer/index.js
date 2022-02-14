@@ -10,11 +10,11 @@ app.set('view engine', 'hbs');
 
 // Servir contenido estático
 // Cargar contenido
+const proy = 'react' // react or angular-app
 
+app.use(express.static('templated-roadtrip/' + proy, {extensions: ['html']}));
 
-app.use(express.static('templated-roadtrip', {extensions: ['html']}));
-
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.render('home.hbs',{
         name: 'Miquel Molinier',
         title: 'Curso de node'
@@ -33,10 +33,10 @@ app.get('/elements', (req, res) => {
         name: 'Miquel Molinier',
         title: 'Curso de node'
     });
-});
+}); */
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public/404.html');
+    res.sendFile(__dirname + `/templated-roadtrip/${proy}/index.html`);
 });
 
 app.listen(port, () => {
