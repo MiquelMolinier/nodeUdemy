@@ -7,7 +7,15 @@ const {
     userPut,
     userDelete,
 } = require("../controllers/users");
-const { validarCampos } = require("../middlewares/validar");
+/* const { validarCampos } = require("../middlewares/validar");
+const { validateJWT } = require("../middlewares/validar-jwt");
+const { isAdmin, haveRole } = require("../middlewares/validar-rol"); */
+const {
+    validarCampos,
+    validateJWT,
+    isAdmin,
+    haveRole,
+} = require("../middlewares/index");
 const {
     roleValido,
     existEmail,
@@ -53,6 +61,9 @@ router.put(
 router.delete(
     "/:id",
     [
+        validateJWT,
+        // isAdmin,
+        haveRole("ADMIN_ROLE", "SALES_ROLE", "BOSS_ROLE"),
         check("id", "No es un ID válido").isMongoId(),
         check("id", "El ID no existe").custom(existId),
         validarCampos,

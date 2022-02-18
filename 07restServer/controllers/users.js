@@ -51,6 +51,8 @@ const userDelete = async (req, res) => {
     res.json({
         msg: "delete API controller",
         user,
+        uid: req.uid,
+        admin: req.user,
     });
 };
 module.exports = {
