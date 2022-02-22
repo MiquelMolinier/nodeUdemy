@@ -48,6 +48,13 @@ const existNameProduct = async (name) => {
         if (exist) throw new Error(`El nombre del producto ${name} ya existe`);
     }
 };
+const colections = (c, cs) => {
+    if (!cs.includes(c))
+        throw new Error(
+            `La colección ${c} no existe - Las existentes son ${cs}`
+        );
+    return true;
+};
 module.exports = {
     roleValido,
     existEmail,
@@ -57,4 +64,5 @@ module.exports = {
     existName,
     existNameProduct,
     existProduct,
+    colections,
 };

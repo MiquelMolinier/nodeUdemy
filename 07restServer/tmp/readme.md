@@ -1,0 +1,1 @@
+## Folder de imágenes locales

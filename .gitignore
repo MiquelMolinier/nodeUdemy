@@ -1,3 +1,7 @@
 node_modules/
 ra/
 .env
+/07restServer/tmp/img/*.*
+/07restServer/tmp/Product/*.*
+/07restServer/tmp/Users/*.*
+/07restServer/tmp/text/*.*

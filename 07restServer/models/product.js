@@ -24,6 +24,9 @@ const productSchema = Schema({
         ref: "Category",
         required: true,
     },
+    img: {
+        type: String,
+    },
     desc: {
         type: String,
         default: "",
