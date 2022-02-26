@@ -71,7 +71,17 @@ const googleSignIn = async (req, res = response) => {
         });
     }
 };
+const tokenController = async (req, res) => {
+    const { user } = req;
+    const token = await generateJWT(user._id);
+    res.json({
+        user,
+        msg: "Token valido",
+        token,
+    });
+};
 module.exports = {
     login,
     googleSignIn,
+    tokenController,
 };
